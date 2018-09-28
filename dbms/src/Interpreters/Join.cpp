@@ -810,7 +810,7 @@ void Join::joinBlockImpl(Block & block, const Maps & maps) const
 
                 auto mut_column = (*std::move(column)).mutate();
                 mut_column->insertDefault();
-                column = nut_column->index(*mapping, 0);
+                column = mut_column->index(*mapping, 0);
             }
             block.insert({col.column, col.type, right_name});
         }
