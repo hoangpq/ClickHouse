@@ -812,7 +812,7 @@ void Join::joinBlockImpl(Block & block, const Maps & maps) const
                 mut_column->insertDefault();
                 column = mut_column->index(*mapping, 0);
             }
-            block.insert({col.column, col.type, right_name});
+            block.insert({column, col.type, right_name});
         }
     }
 
