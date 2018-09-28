@@ -524,7 +524,7 @@ namespace
     struct Adder<ASTTableJoin::Kind::Left, ASTTableJoin::Strictness::Any, Map>
     {
         static void addFound(const typename Map::const_iterator & it, size_t num_columns_to_add, MutableColumns & added_columns,
-            size_t /*i*/, IColumn::Filter * filter, IColumn::Offset & /*current_offset*/, IColumn::Offsets * /*offsets*/,
+            size_t i, IColumn::Filter * filter, IColumn::Offset & /*current_offset*/, IColumn::Offsets * /*offsets*/,
             const std::vector<size_t> & right_indexes)
         {
             (*filter)[i] = 1;
@@ -534,7 +534,7 @@ namespace
         }
 
         static void addNotFound(size_t num_columns_to_add, MutableColumns & added_columns,
-            size_t /*i*/, IColumn::Filter * filter, IColumn::Offset & /*current_offset*/, IColumn::Offsets * /*offsets*/)
+            size_t i, IColumn::Filter * filter, IColumn::Offset & /*current_offset*/, IColumn::Offsets * /*offsets*/)
         {
             (*filter)[i] = 0;
 
