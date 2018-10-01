@@ -2852,7 +2852,7 @@ void ExpressionAnalyzer::collectUsedColumns()
             analyzed_join.columns_added_by_join.erase(it++);
     }
 
-    analyzed_join.createJoinedBlockActions(select_query, context);
+    analyzed_join.createJoinedBlockActions(source_columns, select_query, context);
 
     /// Some columns from right join key may be used in query. This columns will be appended to block during join.
     for (const auto & right_key_name : analyzed_join.key_names_right)
