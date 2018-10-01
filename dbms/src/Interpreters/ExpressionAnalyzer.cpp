@@ -2341,7 +2341,7 @@ const ExpressionAnalyzer::AnalyzedJoin::JoinedColumnsList & ExpressionAnalyzer::
 
             for (auto & column : columns)
             {
-                columns_from_joined_table.emplce_back(column, column.name);
+                columns_from_joined_table.emplace_back(column, column.name);
 
                 if (source_columns.contains(column.name))
                     columns_from_joined_table.back().original_name = table_name_with_alias.getQualifiedNamePrefix() + column.name;
